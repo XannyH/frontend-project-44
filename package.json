@@ -9,7 +9,7 @@
   },
   "bin": {
     "brain-games": "bin/brain-games.js"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/XannyH/frontend-project-44.git"
