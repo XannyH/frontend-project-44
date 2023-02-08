@@ -6,7 +6,7 @@
 ### Badge CodeClimate:
 [![Maintainability](https://api.codeclimate.com/v1/badges/3cc8d14b442306152eb9/maintainability)](https://codeclimate.com/github/XannyH/frontend-project-44/maintainability)
 
-### ** How it works: **
+### **How it works:**
 #### brain-even:
 
 [![asciicast](https://asciinema.org/a/eg0zngd1A82uPPpJbh8tFlMRl.svg)](https://asciinema.org/a/eg0zngd1A82uPPpJbh8tFlMRl)
