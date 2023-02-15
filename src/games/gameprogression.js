@@ -4,29 +4,28 @@ const description = 'What number is missing in the progression?';
 
 const randomIntFromInterval = (min, max) =>  {
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};
 
 const generateRound = () => {
-  const numDiff = randomIntFromInterval(1, 5);
-  const firstElement = numberGeneration();
+  // generate initial data of progression
+  const progressionStep = randomIntFromInterval(1, 5);
+  const firstNumber = numberGeneration();
   const lengthOfProgression = randomIntFromInterval(5, 10);
   const hiddenIndex = randomIntFromInterval(0, (lengthOfProgression - 1));
-  let  question = '';
-  let currentElement = firstElement;
-  for (let i = 0; i < lengthOfProgression; i += 1) {
-    if (i !== 0 && i !== hiddenIndex) {
-      question = `${question} ${currentElement}`;
+  // generate progression arr
+  const generateProgressionArr = () => {
+    const progressionArr = [firstNumber];
+    for (let i = 1; i < lengthOfProgression; i += 1) {
+      if (i === hiddenIndex) {
+        progressionArr.push('..');
+      } else {
+        progressionArr.push(firstNumber + progressionStep * i);
+      }
     }
-    if (i === 0) {
-      question = `${currentElement}`;
-    }
-    if (i === hiddenIndex) {
-      question = `${question} ..`;
-    }
-    currentElement += numDiff;
-  }
-
-  const rightAnswer = String(firstElement + numDiff * hiddenIndex);
+    return progressionArr;
+  };
+  const question = generateProgressionArr().join(' ');
+  const rightAnswer = String(firstNumber + progressionStep * hiddenIndex);
 
   return [question, rightAnswer];
 };
