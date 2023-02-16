@@ -12,20 +12,17 @@ const generateRound = () => {
   const firstNumber = numberGeneration();
   const lengthOfProgression = randomIntFromInterval(5, 10);
   const hiddenIndex = randomIntFromInterval(0, (lengthOfProgression - 1));
-  // generate progression arr
+  // generate progression
   const generateProgressionArr = () => {
     const progressionArr = [];
     for (let i = 0; i < lengthOfProgression; i += 1) {
-      if (i === hiddenIndex) {
-        progressionArr.push('..');
-      }
-      if (i !== hiddenIndex) {
-        progressionArr.push(firstNumber + progressionStep * i);
-      }
+      progressionArr.push(firstNumber + progressionStep * i);
     }
     return progressionArr;
   };
-  const question = generateProgressionArr().join(' ');
+  const progression = generateProgressionArr();
+  progression[hiddenIndex] = '..';
+  const question = progression.join(' ');
   const rightAnswer = String(firstNumber + progressionStep * hiddenIndex);
   return [question, rightAnswer];
 };
