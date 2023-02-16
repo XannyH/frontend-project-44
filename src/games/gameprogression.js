@@ -14,11 +14,12 @@ const generateRound = () => {
   const hiddenIndex = randomIntFromInterval(0, (lengthOfProgression - 1));
   // generate progression arr
   const generateProgressionArr = () => {
-    const progressionArr = [firstNumber];
-    for (let i = 1; i < lengthOfProgression; i += 1) {
+    const progressionArr = [];
+    for (let i = 0; i < lengthOfProgression; i += 1) {
       if (i === hiddenIndex) {
         progressionArr.push('..');
-      } else {
+      }
+      if (i !== hiddenIndex) {
         progressionArr.push(firstNumber + progressionStep * i);
       }
     }
@@ -26,7 +27,6 @@ const generateRound = () => {
   };
   const question = generateProgressionArr().join(' ');
   const rightAnswer = String(firstNumber + progressionStep * hiddenIndex);
-
   return [question, rightAnswer];
 };
 
