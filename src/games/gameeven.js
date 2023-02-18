@@ -1,5 +1,5 @@
-import { startGame } from '../index.js';
-import { randomIntFromInterval } from '../utils.js';
+import startGame from '../index.js';
+import randomIntFromInterval from '../utils.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -11,14 +11,14 @@ export const isEven = (number) => {
 };
 
 const generateRound = () => {
-  const number = randomIntFromInterval(1, 100);
   let rightAnswer = '';
-  if (isEven(number) === true) {
+  const int = randomIntFromInterval(1, 100);
+  if (isEven(int) === true) {
     rightAnswer = 'yes';
   } else {
     rightAnswer = 'no';
   }
-  const question = String(number);
+  const question = String(int);
   return [question, rightAnswer];
 };
 
