@@ -1,18 +1,20 @@
-import { startGame } from '../index.js';
-import { randomIntFromInterval } from '../utils.js';
+import startGame from '../index.js';
+import randomIntFromInterval from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
 const calculate = (number1, number2, expressionSign) => {
+  let result = 0;
   if (expressionSign === '+') {
-    return number1 + number2;
+    result = number1 + number2;
   }
   if (expressionSign === '-') {
-    return number1 - number2;
+    result = number1 - number2;
   }
   if (expressionSign === '*') {
-    return number1 * number2;
+    result = number1 * number2;
   }
+  return result;
 };
 
 const generateRound = () => {
