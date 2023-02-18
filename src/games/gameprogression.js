@@ -2,9 +2,7 @@ import { startGame, numberGeneration } from '../index.js';
 
 const description = 'What number is missing in the progression?';
 
-const randomIntFromInterval = (min, max) =>  {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+const randomIntFromInterval = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 const generateRound = () => {
   // generate initial data of progression
