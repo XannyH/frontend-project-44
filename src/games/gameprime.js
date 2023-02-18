@@ -1,20 +1,26 @@
-import { startGame, numberGeneration } from '../index.js';
+import { startGame } from '../index.js';
+import { randomIntFromInterval } from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   for (let i = 2; i < Math.floor(number / 2); i += 1) {
     if (number % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 const generateRound = () => {
-  const number = numberGeneration();
-  const rightAnswer = isPrime(number);
-  const question = `${number}`;
+  const number = randomIntFromInterval(1, 100);
+  let rightAnswer = '';
+  if (isPrime(number) === true) {
+    rightAnswer = 'yes';
+  } else {
+    rightAnswer = 'no';
+  }
+  const question = String(number);
   return [question, rightAnswer];
 };
 
