@@ -11,13 +11,12 @@ export const startGame = (description, generateRound) => {
   for (let i = 0; i < roundsCount; i += 1) {
     const [question, rightAnswer] = generateRound();
     console.log(`Question: ${question}`);
-    let userAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer !== rightAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
       return;
-    } else {
-      console.log('Correct!');
     }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
 };
