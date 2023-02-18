@@ -1,13 +1,12 @@
-import { startGame, numberGeneration } from '../index.js';
+import { startGame } from '../index.js';
+import { randomIntFromInterval } from '../utils.js';
 
 const description = 'What number is missing in the progression?';
-
-const randomIntFromInterval = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 const generateRound = () => {
   // generate initial data of progression
   const progressionStep = randomIntFromInterval(1, 5);
-  const firstNumber = numberGeneration();
+  const firstNumber = randomIntFromInterval(1, 100);
   const lengthOfProgression = randomIntFromInterval(5, 10);
   const hiddenIndex = randomIntFromInterval(0, (lengthOfProgression - 1));
   // generate progression
