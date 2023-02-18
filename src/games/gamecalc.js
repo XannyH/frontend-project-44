@@ -1,4 +1,5 @@
-import { startGame, numberGeneration } from '../index.js';
+import { startGame } from '../index.js';
+import { randomIntFromInterval } from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
@@ -15,8 +16,8 @@ const calculate = (number1, number2, expressionSign) => {
 };
 
 const generateRound = () => {
-  const number1 = numberGeneration();
-  const number2 = numberGeneration();
+  const number1 = randomIntFromInterval(1, 100);
+  const number2 = randomIntFromInterval(1, 100);
   const expressionSigns = ['+', '-', '*'];
   const signRandomizer = expressionSigns[Math.floor(Math.random() * expressionSigns.length)];
   const rightAnswer = String(calculate(number1, number2, signRandomizer));
